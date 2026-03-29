@@ -206,10 +206,10 @@ This is a draft for public comment. Feedback welcome via:
 
 ## Authors
 
-BC (Bourn Collier)
+
 Kadikoy Limited, Bermuda
 BDA AI Agent Services
-[ais1@aiagentservices.net](mailto:ais1@aiagentservices.net)
+(mailto:info@aiagentsservices.net)
 
 ---
 
