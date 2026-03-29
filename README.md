@@ -50,7 +50,7 @@ An AIS-1 **Agent Passport** is a cryptographic, soulbound token that permanently
 |---|---|---|---|
 | 0 | **Basic** | Permissionless | Developer / prototype agents |
 | 1 | **Verified** | KYC/AML by authorised issuer | Commercial / enterprise agents |
-| 2 | **Sovereign** | Full legal wrapper + government VC | Regulated / financial agents |
+| 2 | **Sovereign** | Authorised issuer only + government VC | Regulated / financial agents |
 
 ## Quick Start
 
