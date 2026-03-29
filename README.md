@@ -201,7 +201,7 @@ The open standard is what drives adoption. The value is in the ecosystem, not in
 
 This is a draft for public comment. Feedback welcome via:
 - GitHub Issues: [github.com/kadikoy/ais-1/issues](https://github.com/kadikoy/ais-1/issues)
-- Email: ais1@aiagentservices.net
+- Email: info@aiagentsservices.net
 - Comment period for v0.1 closes: 30 June 2026
 
 ## Authors
