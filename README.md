@@ -10,11 +10,11 @@
 
 ## What is AIS-1?
 
-AIS-1 defines an open smart contract standard for bonded identity pairs linking an AI agent to its controlling sponsor. It addresses the Wild Agent Problem: hundreds of millions of autonomous AI agents operate globally with no identity, no legal standing, and no accountability infrastructure.
+AIS-1 defines an open smart contract standard for bonded identity pairs linking an AI agent to its controlling sponsor. It addresses the Wild Agent Problem: hundreds of millions of  AI agents operate globally with no identity, no legal standing, and no accountability infrastructure.
 
 An AIS-1 **Agent Passport** is a cryptographic, soulbound token that permanently and verifiably bonds:
 
-- **Agent Card** — the autonomous AI system's identity, capabilities, and AML status
+- **Agent Card** — the AI system's identity, capabilities, and AML status
 - **Sponsor Card** — the human, company, or legal entity accountable for the agent
 - **Bond** — the permanent, tamper-evident link between them
 
