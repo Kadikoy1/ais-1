@@ -1,0 +1,36 @@
+{
+  "name": "@ais1/contracts",
+  "version": "0.1.0",
+  "description": "AIS-1: Agent Identity Standard — Smart Contracts",
+  "license": "CC0-1.0",
+  "homepage": "https://ais-1.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kadikoy/ais-1"
+  },
+  "keywords": [
+    "ais1", "agent-identity", "ai-agents", "erc721", "soulbound",
+    "erc8002", "hedera", "bermuda", "did", "w3c", "verifiable-credentials"
+  ],
+  "scripts": {
+    "compile":    "hardhat compile",
+    "test":       "hardhat test",
+    "test:gas":   "REPORT_GAS=true hardhat test",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network base-sepolia",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network base",
+    "issue-bonds":    "hardhat run scripts/issue-first-bonds.js --network base-sepolia",
+    "verify":         "hardhat verify --network base-sepolia",
+    "clean":          "hardhat clean"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "@hashgraph/sdk": "^2.35.0",
+    "ethers": "^6.9.0"
+  }
+}

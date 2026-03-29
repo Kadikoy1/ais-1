@@ -1,0 +1,133 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "ais1": "https://ais-1.org/vocab/v1#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "AgentPassport": "ais1:AgentPassport",
+    "AgentCard": "ais1:AgentCard",
+    "SponsorCard": "ais1:SponsorCard",
+    "Bond": "ais1:Bond",
+
+    "agentDid": {
+      "@id": "ais1:agentDid",
+      "@type": "@id"
+    },
+    "agentName": {
+      "@id": "ais1:agentName",
+      "@type": "xsd:string"
+    },
+    "agentType": {
+      "@id": "ais1:agentType",
+      "@type": "xsd:string",
+      "@comment": "One of: autonomous | semi-autonomous | supervised"
+    },
+    "capabilities": {
+      "@id": "ais1:capabilities",
+      "@type": "xsd:string",
+      "@comment": "JSON array of capability strings"
+    },
+    "modelFramework": {
+      "@id": "ais1:modelFramework",
+      "@type": "xsd:string"
+    },
+    "deploymentDate": {
+      "@id": "ais1:deploymentDate",
+      "@type": "xsd:dateTime"
+    },
+    "chainAddresses": {
+      "@id": "ais1:chainAddresses",
+      "@type": "xsd:string",
+      "@comment": "JSON array of {chain, address} objects"
+    },
+    "amlStatus": {
+      "@id": "ais1:amlStatus",
+      "@type": "xsd:integer",
+      "@comment": "0=unverified 1=cleared 2=suspended"
+    },
+    "metadataUri": {
+      "@id": "ais1:metadataUri",
+      "@type": "@id"
+    },
+
+    "sponsorDid": {
+      "@id": "ais1:sponsorDid",
+      "@type": "@id"
+    },
+    "legalName": {
+      "@id": "schema:legalName",
+      "@type": "xsd:string"
+    },
+    "entityType": {
+      "@id": "ais1:entityType",
+      "@type": "xsd:string",
+      "@comment": "One of: individual | company | dao | trust | foundation"
+    },
+    "jurisdiction": {
+      "@id": "ais1:jurisdiction",
+      "@type": "xsd:string",
+      "@comment": "ISO 3166-1 alpha-2 country code"
+    },
+    "registrationNo": {
+      "@id": "schema:taxID",
+      "@type": "xsd:string"
+    },
+    "kycStatus": {
+      "@id": "ais1:kycStatus",
+      "@type": "xsd:integer",
+      "@comment": "0=unverified 1=verified 2=enhanced"
+    },
+    "sponsorVc": {
+      "@id": "ais1:sponsorVc",
+      "@type": "@id",
+      "@comment": "URI of W3C Verifiable Credential (e.g. ROC certificate of incorporation)"
+    },
+    "issuerId": {
+      "@id": "ais1:issuerId",
+      "@type": "@id"
+    },
+
+    "bondId": {
+      "@id": "ais1:bondId",
+      "@type": "xsd:integer"
+    },
+    "bondHash": {
+      "@id": "ais1:bondHash",
+      "@type": "xsd:string",
+      "@comment": "keccak256(agentDid ++ sponsorDid ++ issuedAt ++ tier)"
+    },
+    "issuedAt": {
+      "@id": "ais1:issuedAt",
+      "@type": "xsd:dateTime"
+    },
+    "issuedBy": {
+      "@id": "ais1:issuedBy",
+      "@type": "@id"
+    },
+    "tier": {
+      "@id": "ais1:tier",
+      "@type": "xsd:integer",
+      "@comment": "0=Basic 1=Verified 2=Sovereign"
+    },
+    "hcsTopicId": {
+      "@id": "ais1:hcsTopicId",
+      "@type": "xsd:string",
+      "@comment": "Hedera Consensus Service topic ID for canonical log"
+    },
+    "hcsSequence": {
+      "@id": "ais1:hcsSequence",
+      "@type": "xsd:integer"
+    },
+    "bondStatus": {
+      "@id": "ais1:bondStatus",
+      "@type": "xsd:integer",
+      "@comment": "0=active 1=suspended 2=revoked"
+    },
+    "expiry": {
+      "@id": "ais1:expiry",
+      "@type": "xsd:dateTime",
+      "@comment": "null/0 = perpetual"
+    }
+  }
+}
