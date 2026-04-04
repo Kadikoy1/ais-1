@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIS-1 Bond Certificate · No. 1 · PayAgent</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1B4FD8;
+    --blue-light: #EEF2FF;
+    --blue-mid: #3B6BF0;
+    --blue-dim: rgba(27,79,216,0.08);
+    --green: #16A34A;
+    --green-light: #DCFCE7;
+    --text: #0F172A;
+    --text-mid: #475569;
+    --text-light: #94A3B8;
+    --border: #E2E8F0;
+    --border-blue: rgba(27,79,216,0.2);
+    --bg: #FFFFFF;
+    --bg-subtle: #F8FAFC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Libre Baskerville', serif;
+    background: #F1F5F9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .certificate {
+    background: var(--bg);
+    width: 780px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Top rule */
+  .top-rule {
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue) 0%, var(--blue-mid) 100%);
+  }
+
+  /* Header */
+  .header {
+    padding: 32px 48px 24px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .standard-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .cert-title {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .cert-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-light);
+    text-transform: uppercase;
+  }
+
+  /* Bond pair */
+  .bond-pair {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    padding: 32px 48px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+
+  .card {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+  }
+
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .card-did {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--blue);
+    margin-bottom: 10px;
+    word-break: break-all;
+  }
+
+  .card-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+
+  .card-row-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-light);
+    min-width: 60px;
+  }
+
+  .card-row-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-mid);
+  }
+
+  .badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--green-light);
+    color: var(--green);
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .badge-status::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: var(--green);
+    border-radius: 50%;
+  }
+
+  /* Bond badge center */
+  .bond-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 28px;
+  }
+
+  .bond-circle {
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue-light);
+    position: relative;
+  }
+
+  .bond-circle::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--border-blue);
+    border-radius: 50%;
+  }
+
+  .bond-number {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--blue);
+    line-height: 1;
+  }
+
+  .bond-word {
+    font-family: 'DM Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    color: var(--blue);
+    text-transform: uppercase;
+  }
+
+  .bond-connector {
+    width: 24px;
+    height: 1px;
+    background: var(--border-blue);
+  }
+
+  .verified-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--blue-dim);
+    border: 1px solid var(--border-blue);
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+
+  .verified-badge span {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .verified-tick {
+    width: 10px;
+    height: 10px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 7px;
+  }
+
+  /* Data section */
+  .data-section {
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .data-group {}
+
+  .data-group-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-bottom: 10px;
+  }
+
+  .data-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .data-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    color: var(--text);
+    word-break: break-all;
+  }
+
+  .data-value.blue { color: var(--blue); }
+  .data-value.mono-small { font-size: 8px; }
+
+  /* Footer */
+  .footer {
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-subtle);
+  }
+
+  .footer-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .footer-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--blue);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+<div class="certificate">
+  <div class="top-rule"></div>
+
+  <div class="header">
+    <div class="standard-label">AIS-1 &nbsp;·&nbsp; Agent Identity Standard</div>
+    <div class="cert-title">Bond Certificate · No. 1</div>
+    <div class="cert-subtitle">First Issuance &nbsp;·&nbsp; Base Mainnet &nbsp;·&nbsp; 2 April 2026</div>
+  </div>
+
+  <div class="bond-pair">
+    <!-- Agent Card -->
+    <div class="card">
+      <div class="card-label">Agent Card</div>
+      <div class="card-name">PayAgent</div>
+      <div class="card-did">did:ais1:base:payagent-001</div>
+      <div class="card-row">
+        <span class="card-row-label">Type</span>
+        <span class="card-row-value">Autonomous</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Deployed</span>
+        <span class="card-row-value">20 Feb 2026</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Wallet</span>
+        <span class="card-row-value">payagentai.eth</span>
+      </div>
+      <div class="badge-status">AML cleared</div>
+    </div>
+
+    <!-- Center bond -->
+    <div class="bond-badge">
+      <div class="bond-connector"></div>
+      <div class="bond-circle">
+        <div class="bond-word">Bond</div>
+        <div class="bond-number">1</div>
+      </div>
+      <div class="verified-badge">
+        <div class="verified-tick">✓</div>
+        <span>Verified</span>
+      </div>
+      <div class="bond-connector"></div>
+    </div>
+
+    <!-- Sponsor Card -->
+    <div class="card">
+      <div class="card-label">Sponsor Card</div>
+      <div class="card-name">Kadikoy Limited</div>
+      <div class="card-did">did:ais1:sponsor:kadikoy-bm-202302362</div>
+      <div class="card-row">
+        <span class="card-row-label">Type</span>
+        <span class="card-row-value">Company</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Jurisdiction</span>
+        <span class="card-row-value">Bermuda</span>
+      </div>
+      <div class="card-row">
+        <span class="card-row-label">Reg.</span>
+        <span class="card-row-value">202302362</span>
+      </div>
+      <div class="badge-status">KYC enhanced</div>
+    </div>
+  </div>
+
+  <!-- On-chain data -->
+  <div class="data-section">
+    <div class="data-group">
+      <div class="data-group-label">Contract</div>
+      <div class="data-row">
+        <span class="data-label">AIS1 Contract · Base Mainnet</span>
+        <span class="data-value blue mono-small">0x52d0E17b80d19470E0d97Ea6b62bf35d867FDcb3</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Transaction Hash</span>
+        <span class="data-value blue mono-small">0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Block</span>
+        <span class="data-value">44160942</span>
+      </div>
+    </div>
+    <div class="data-group">
+      <div class="data-group-label">Identity</div>
+      <div class="data-row">
+        <span class="data-label">DID Document</span>
+        <span class="data-value blue mono-small">https://ais-1.org/resolve/payagent-001.json</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Genesis Certificate</span>
+        <span class="data-value blue mono-small">ipfs://bafkreiflwx7u5j3all6xgkbnbibiaelus6sakomr5bqe5xghglvcfedbl4</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Governance</span>
+        <span class="data-value blue mono-small">snapshot.org/#/s:payagentai.eth</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">
+      Deployed by payagentai.eth &nbsp;·&nbsp; Base Mainnet &nbsp;·&nbsp; Block 44160942 &nbsp;·&nbsp; $0.05<br>
+      Issued under AIS-1 v0.1 — Creative Commons CC0 — Kadikoy Limited, Bermuda
+    </div>
+    <div class="footer-right">ais-1.org</div>
+  </div>
+</div>
+</body>
+</html>
