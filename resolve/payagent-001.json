@@ -1,0 +1,108 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1",
+    "https://ais-1.org/context/v0.1"
+  ],
+  "id": "did:ais1:base:payagent-001",
+  "controller": "did:ais1:sponsor:kadikoy-bm-202302362",
+
+  "verificationMethod": [
+    {
+      "id": "did:ais1:base:payagent-001#primary",
+      "type": "EcdsaSecp256k1VerificationKey2019",
+      "controller": "did:ais1:base:payagent-001",
+      "blockchainAccountId": "eip155:8453:0x6B921244b7239Ac9B961c06794Ec5eA3B61e87Bd"
+    }
+  ],
+
+  "authentication": [
+    "did:ais1:base:payagent-001#primary"
+  ],
+
+  "assertionMethod": [
+    "did:ais1:base:payagent-001#primary"
+  ],
+
+  "service": [
+    {
+      "id": "did:ais1:base:payagent-001#governance",
+      "type": "GovernanceEndpoint",
+      "serviceEndpoint": "https://snapshot.org/#/s:payagentai.eth"
+    },
+    {
+      "id": "did:ais1:base:payagent-001#agent-service",
+      "type": "AgentServiceEndpoint",
+      "serviceEndpoint": "https://railway.app/payagent"
+    },
+    {
+      "id": "did:ais1:base:payagent-001#genesis",
+      "type": "GenesisDocument",
+      "serviceEndpoint": "https://ipfs.io/ipfs/bafkreiflwx7u5j3all6xgkbnbibiaelus6sakomr5bqe5xghglvcfedbl4"
+    },
+    {
+      "id": "did:ais1:base:payagent-001#ais1-bond",
+      "type": "AIS1Bond",
+      "serviceEndpoint": {
+        "contract": "0x52d0E17b80d19470E0d97Ea6b62bf35d867FDcb3",
+        "network": "base-mainnet",
+        "chain_id": 8453,
+        "bond_id": 1,
+        "txn_hash": "0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47",
+        "block": 44160942,
+        "blockscout_url": "https://base.blockscout.com/tx/0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47"
+      }
+    }
+  ],
+
+  "ais1": {
+    "bond_id": "ais1:base:00001",
+    "agent_card": {
+      "agent_did": "did:ais1:base:payagent-001",
+      "agent_name": "PayAgent",
+      "agent_type": "autonomous",
+      "capabilities": ["payments", "intake", "monitoring", "governance"],
+      "model_framework": "claude / custom",
+      "deployment_date": "2026-02-20",
+      "chain_addresses": [
+        { "chain": "base", "address": "0x6B921244b7239Ac9B961c06794Ec5eA3B61e87Bd" },
+        { "chain": "ethereum-ens", "address": "payagentai.eth" }
+      ],
+      "aml_status": "cleared",
+      "metadata_uri": "https://ipfs.io/ipfs/bafkreiflwx7u5j3all6xgkbnbibiaelus6sakomr5bqe5xghglvcfedbl4"
+    },
+    "sponsor_card": {
+      "sponsor_did": "did:ais1:sponsor:kadikoy-bm-202302362",
+      "legal_name": "Kadikoy Limited",
+      "entity_type": "company",
+      "jurisdiction": "BM",
+      "registration_number": "202302362",
+      "kyc_status": "enhanced"
+    },
+    "bond": {
+      "bond_id": 1,
+      "tier": 1,
+      "tier_name": "AIS-1 Verified",
+      "status": "active",
+      "issued_at": "2026-04-02",
+      "issued_by": "did:ais1:issuer:kadikoy",
+      "jurisdiction": "BM",
+      "hcs_topic_id": "pending-hcs",
+      "contract_address": "0x52d0E17b80d19470E0d97Ea6b62bf35d867FDcb3",
+      "txn_hash": "0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47",
+      "block": 44160942,
+      "network": "base-mainnet",
+      "expiry": null
+    }
+  },
+
+  "ais1_standard": {
+    "version": "0.1",
+    "specification": "https://ais-1.org",
+    "repository": "https://github.com/kadikoy/ais-1",
+    "license": "CC0"
+  },
+
+  "created": "2026-04-02T00:00:00Z",
+  "updated": "2026-04-04T00:00:00Z"
+}
