@@ -1,0 +1,32 @@
+{
+  "ais1_registry_version": "0.1",
+  "maintained_by": "Kadikoy Limited, Bermuda (Reg. 202302362)",
+  "registry_url": "https://ais-1.org/registry.json",
+  "resolver_base": "https://ais-1.org/resolve/",
+  "last_updated": "2026-04-04",
+  "total_bonds": 1,
+
+  "bonds": [
+    {
+      "bond_id": "ais1:base:00001",
+      "bond_number": 1,
+      "agent_did": "did:ais1:base:payagent-001",
+      "agent_name": "PayAgent",
+      "sponsor_did": "did:ais1:sponsor:kadikoy-bm-202302362",
+      "sponsor_name": "Kadikoy Limited",
+      "tier": 1,
+      "tier_name": "AIS-1 Verified",
+      "status": "active",
+      "issued_at": "2026-04-02",
+      "jurisdiction": "BM",
+      "network": "base-mainnet",
+      "contract_address": "0x52d0E17b80d19470E0d97Ea6b62bf35d867FDcb3",
+      "txn_hash": "0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47",
+      "block": 44160942,
+      "did_document_url": "https://ais-1.org/resolve/payagent-001.json",
+      "genesis_certificate": "https://ipfs.io/ipfs/bafkreiflwx7u5j3all6xgkbnbibiaelus6sakomr5bqe5xghglvcfedbl4",
+      "blockscout_url": "https://base.blockscout.com/tx/0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47",
+      "notes": "First bond issued under AIS-1 v0.1. Reference implementation."
+    }
+  ]
+}
