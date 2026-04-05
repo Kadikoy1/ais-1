@@ -1,0 +1,81 @@
+{
+  "ais1_assurance_version": "0.1",
+  "agent_did": "did:ais1:base:humphrey-soa-001",
+  "agent_name": "Humphrey",
+  "bond_id": "ais1:base:00002",
+  "parent_bond_id": "ais1:base:00001",
+  "parent_agent_did": "did:ais1:base:payagent-001",
+  "last_updated": "2026-04-04",
+
+  "certificate_versions": [
+    {
+      "version": "1.0",
+      "issued_at": "2026-04-04",
+      "description": "Genesis certificate. Bond issuance only. First SOA under AIS-1 v0.2. AML self-declared.",
+      "certificate_uri": "pending-ipfs-upload",
+      "certificate_hash": "pending",
+      "status": "current",
+      "assurance_items": {
+        "aml": "self-declared",
+        "legal_opinion": "none",
+        "audit": "none",
+        "valuation": "none",
+        "government_vc": "none"
+      }
+    }
+  ],
+
+  "current_certificate_version": "1.0",
+  "current_certificate_uri": "pending-ipfs-upload",
+
+  "assurance_items": [
+    {
+      "type": "aml_clearance",
+      "label": "AML Clearance",
+      "status": "self-declared",
+      "issuer": "Kadikoy Limited (self-declared)",
+      "issuer_did": "did:ais1:sponsor:kadikoy-bm-202302362",
+      "date": "2026-04-04",
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "SOA accountability flows to PayAgent (Bond No. 1). AML clearance inherited from parent ALA pending formal SOA-specific certification.",
+      "triggers_certificate_version": "1.1"
+    },
+    {
+      "type": "legal_opinion",
+      "label": "Legal Opinion",
+      "status": "pending",
+      "issuer": "BDA Law, Bermuda",
+      "issuer_did": "did:ais1:issuer:kadikoy",
+      "date": null,
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "SOA legal opinion confirming subordinate operating status and accountability chain.",
+      "triggers_certificate_version": "1.2"
+    },
+    {
+      "type": "audit",
+      "label": "Audit",
+      "status": "pending",
+      "issuer": "Big Four — in discussion",
+      "issuer_did": null,
+      "date": null,
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "Audit of SOA operations. May be included in parent ALA audit scope.",
+      "triggers_certificate_version": "2.0"
+    }
+  ],
+
+  "certificate_version_roadmap": {
+    "v1.0": "Genesis — bond issuance only",
+    "v1.1": "AML Clearance added",
+    "v1.2": "Legal Opinion added",
+    "v2.0": "Audit added"
+  },
+
+  "soa_note": "As a Subordinate Operating Agent, Humphrey's assurance requirements are lighter than a full ALA. Full BATZ certification applies to the parent ALA (PayAgent, Bond No. 1). Humphrey's assurance reflects its operational role only."
+}
