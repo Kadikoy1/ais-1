@@ -1,0 +1,114 @@
+{
+  "ais1_assurance_version": "0.1",
+  "agent_did": "did:ais1:base:payagent-001",
+  "agent_name": "PayAgent",
+  "bond_id": "ais1:base:00001",
+  "last_updated": "2026-04-04",
+
+  "certificate_versions": [
+    {
+      "version": "1.0",
+      "issued_at": "2026-04-02",
+      "description": "Genesis certificate. Bond issuance only. AML self-declared.",
+      "certificate_uri": "https://ipfs.io/ipfs/bafkreif5jepathowd2f7vzc3hcrkkfah6q6llpkvrpbxunzfchp3i6ebou",
+      "certificate_hash": "bafkreif5jepathowd2f7vzc3hcrkkfah6q6llpkvrpbxunzfchp3i6ebou",
+      "status": "superseded",
+      "assurance_items": {
+        "aml": "self-declared",
+        "legal_opinion": "none",
+        "audit": "none",
+        "valuation": "none",
+        "government_vc": "none"
+      }
+    }
+  ],
+
+  "current_certificate_version": "1.0",
+  "current_certificate_uri": "https://ipfs.io/ipfs/bafkreif5jepathowd2f7vzc3hcrkkfah6q6llpkvrpbxunzfchp3i6ebou",
+
+  "assurance_items": [
+    {
+      "type": "aml_clearance",
+      "label": "AML Clearance",
+      "status": "self-declared",
+      "issuer": "Kadikoy Limited (self-declared)",
+      "issuer_did": "did:ais1:sponsor:kadikoy-bm-202302362",
+      "date": "2026-04-02",
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "Pending formal certification by compliance officer. Kadikoy KYC documents and principal passport available.",
+      "triggers_certificate_version": "1.1"
+    },
+    {
+      "type": "legal_opinion",
+      "label": "Legal Opinion",
+      "status": "pending",
+      "issuer": "BDA Law, Bermuda",
+      "issuer_did": "did:ais1:issuer:kadikoy",
+      "date": null,
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "Legal capacity opinion — world first. AI legal person opinion under Bermuda law.",
+      "triggers_certificate_version": "1.2"
+    },
+    {
+      "type": "audit",
+      "label": "Audit",
+      "status": "pending",
+      "issuer": "Big Four — in discussion",
+      "issuer_did": null,
+      "date": null,
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "First Big Four audit of an AI legal person. Deloitte Bermuda in discussion.",
+      "triggers_certificate_version": "2.0"
+    },
+    {
+      "type": "valuation",
+      "label": "Valuation",
+      "status": "pending",
+      "issuer": "AXEX market feed",
+      "issuer_did": null,
+      "date": null,
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "Live market price feed from AXEX once operational. Annual audited valuation to follow.",
+      "triggers_certificate_version": "2.1"
+    },
+    {
+      "type": "government_vc",
+      "label": "Government Verifiable Credential",
+      "status": "pending",
+      "issuer": "Bermuda Registrar of Companies",
+      "issuer_did": null,
+      "date": null,
+      "document_hash": null,
+      "document_uri": null,
+      "certifier": null,
+      "notes": "W3C Verifiable Credential from ROC confirming valid Bermuda incorporation. Machine-readable by agents.",
+      "triggers_certificate_version": "2.2"
+    }
+  ],
+
+  "certificate_version_roadmap": {
+    "v1.0": "Genesis — bond issuance only",
+    "v1.1": "AML Clearance added (Michele certification)",
+    "v1.2": "Legal Opinion added (BDA Law)",
+    "v2.0": "Audit added (Big Four)",
+    "v2.1": "Valuation added (AXEX + audited)",
+    "v2.2": "Government VC added (Bermuda ROC) — full BATZ certification"
+  },
+
+  "batz_status": {
+    "bond": "complete",
+    "audit": "pending",
+    "title_legal_opinion": "pending",
+    "zero_knowledge_government_vc": "pending",
+    "batz_certified": false,
+    "batz_certified_date": null
+  }
+}
