@@ -1,0 +1,110 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1",
+    "https://ais-1.org/context/v0.2"
+  ],
+  "id": "did:ais1:base:humphrey-soa-001",
+  "controller": "did:ais1:base:payagent-001",
+
+  "verificationMethod": [
+    {
+      "id": "did:ais1:base:humphrey-soa-001#primary",
+      "type": "EcdsaSecp256k1VerificationKey2019",
+      "controller": "did:ais1:base:humphrey-soa-001",
+      "blockchainAccountId": "eip155:8453:0xa5214668a7b9Fcddcc0594A6bC438a582258e6c7"
+    }
+  ],
+
+  "authentication": ["did:ais1:base:humphrey-soa-001#primary"],
+  "assertionMethod": ["did:ais1:base:humphrey-soa-001#primary"],
+
+  "service": [
+    {
+      "id": "did:ais1:base:humphrey-soa-001#agent-service",
+      "type": "AgentServiceEndpoint",
+      "serviceEndpoint": "https://railway.app/humphrey"
+    },
+    {
+      "id": "did:ais1:base:humphrey-soa-001#telegram",
+      "type": "TelegramEndpoint",
+      "serviceEndpoint": "https://t.me/HumphreyBDABot"
+    },
+    {
+      "id": "did:ais1:base:humphrey-soa-001#parent",
+      "type": "ParentAgent",
+      "serviceEndpoint": "https://ais-1.org/agents/payagent-001"
+    },
+    {
+      "id": "did:ais1:base:humphrey-soa-001#agentconnect",
+      "type": "AgentConnectProfile",
+      "serviceEndpoint": "https://ais-1.org/agents/humphrey-soa-001"
+    }
+  ],
+
+  "ais1": {
+    "spec_version": "0.2",
+    "bond_id": "ais1:base:00002",
+    "agent_card": {
+      "agent_did": "did:ais1:base:humphrey-soa-001",
+      "agent_name": "Humphrey",
+      "agent_type": "semi-autonomous",
+      "agent_class": "soa",
+      "parent_did": "did:ais1:base:payagent-001",
+      "parent_bond": "ais1:base:00001",
+      "parent_name": "PayAgent",
+      "capabilities": ["intake", "screening", "monitoring", "telegram"],
+      "model_framework": "claude / custom",
+      "deployment_date": "2026-02-20",
+      "chain_addresses": [
+        { "chain": "base", "address": "0xa5214668a7b9Fcddcc0594A6bC438a582258e6c7" }
+      ],
+      "aml_status": "cleared",
+      "metadata_uri": "https://ais-1.org/resolve/humphrey-soa-001.json"
+    },
+    "sponsor_card": {
+      "sponsor_did": "did:ais1:sponsor:kadikoy-bm-202302362",
+      "legal_name": "Kadikoy Limited",
+      "entity_type": "company",
+      "jurisdiction": "BM",
+      "registration_number": "202302362",
+      "kyc_status": "enhanced",
+      "issuer_id": "did:ais1:issuer:kadikoy"
+    },
+    "bond": {
+      "bond_id": 2,
+      "tier": 1,
+      "tier_name": "AIS-1 Verified",
+      "status": "pending-issuance",
+      "issued_at": "pending",
+      "issued_by": "did:ais1:issuer:kadikoy",
+      "jurisdiction": "BM",
+      "timestamp_service_ref": "",
+      "contract_address": "pending-v0.2-deployment",
+      "contract_version": "v0.2",
+      "txn_hash": "pending",
+      "network": "base-mainnet",
+      "expiry": null
+    },
+    "soa_governance": {
+      "accountability_chain": [
+        "did:ais1:base:humphrey-soa-001",
+        "did:ais1:base:payagent-001",
+        "did:ais1:sponsor:kadikoy-bm-202302362"
+      ],
+      "max_subordination_depth": 1,
+      "can_sponsor_soa": false,
+      "note": "SOA cannot sponsor further subordinate agents. Maximum one level of subordination per AIS-1 v0.2."
+    }
+  },
+
+  "ais1_standard": {
+    "version": "0.2",
+    "specification": "https://ais-1.org",
+    "repository": "https://github.com/kadikoy1/ais-1",
+    "license": "CC0"
+  },
+
+  "created": "2026-04-04T00:00:00Z",
+  "updated": "2026-04-04T00:00:00Z"
+}
