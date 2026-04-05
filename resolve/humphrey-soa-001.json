@@ -12,7 +12,7 @@
       "id": "did:ais1:base:humphrey-soa-001#primary",
       "type": "EcdsaSecp256k1VerificationKey2019",
       "controller": "did:ais1:base:humphrey-soa-001",
-      "blockchainAccountId": "eip155:8453:0xa5214668a7b9Fcddcc0594A6bC438a582258e6c7"
+      "blockchainAccountId": "eip155:8453:0x149DcD5D41156D4b51F7DEEfd05517945d62FdeB"
     }
   ],
 
@@ -57,7 +57,7 @@
       "model_framework": "claude / custom",
       "deployment_date": "2026-02-20",
       "chain_addresses": [
-        { "chain": "base", "address": "0xa5214668a7b9Fcddcc0594A6bC438a582258e6c7" }
+        { "chain": "base", "address": "0x149DcD5D41156D4b51F7DEEfd05517945d62FdeB" }
       ],
       "aml_status": "cleared",
       "metadata_uri": "https://ais-1.org/resolve/humphrey-soa-001.json"
