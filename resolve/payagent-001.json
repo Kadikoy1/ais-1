@@ -2,7 +2,7 @@
   "@context": [
     "https://www.w3.org/ns/did/v1",
     "https://w3id.org/security/suites/secp256k1-2019/v1",
-    "https://ais-1.org/context/v0.1"
+    "https://ais-1.org/context/v0.2"
   ],
   "id": "did:ais1:base:payagent-001",
   "controller": "did:ais1:sponsor:kadikoy-bm-202302362",
@@ -16,13 +16,8 @@
     }
   ],
 
-  "authentication": [
-    "did:ais1:base:payagent-001#primary"
-  ],
-
-  "assertionMethod": [
-    "did:ais1:base:payagent-001#primary"
-  ],
+  "authentication": ["did:ais1:base:payagent-001#primary"],
+  "assertionMethod": ["did:ais1:base:payagent-001#primary"],
 
   "service": [
     {
@@ -45,6 +40,7 @@
       "type": "AIS1Bond",
       "serviceEndpoint": {
         "contract": "0x52d0E17b80d19470E0d97Ea6b62bf35d867FDcb3",
+        "contract_version": "v0.1",
         "network": "base-mainnet",
         "chain_id": 8453,
         "bond_id": 1,
@@ -52,15 +48,24 @@
         "block": 44160942,
         "blockscout_url": "https://base.blockscout.com/tx/0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47"
       }
+    },
+    {
+      "id": "did:ais1:base:payagent-001#agentconnect",
+      "type": "AgentConnectProfile",
+      "serviceEndpoint": "https://ais-1.org/agents/payagent-001"
     }
   ],
 
   "ais1": {
+    "spec_version": "0.2",
     "bond_id": "ais1:base:00001",
     "agent_card": {
       "agent_did": "did:ais1:base:payagent-001",
       "agent_name": "PayAgent",
       "agent_type": "autonomous",
+      "agent_class": "ala",
+      "parent_did": "",
+      "note_grandfathered": "Bond No. 1 issued under AIS-1 v0.1. agentClass confirmed as 'ala' in v0.2 registry update. parentDid empty by definition.",
       "capabilities": ["payments", "intake", "monitoring", "governance"],
       "model_framework": "claude / custom",
       "deployment_date": "2026-02-20",
@@ -77,7 +82,8 @@
       "entity_type": "company",
       "jurisdiction": "BM",
       "registration_number": "202302362",
-      "kyc_status": "enhanced"
+      "kyc_status": "enhanced",
+      "issuer_id": "did:ais1:issuer:kadikoy"
     },
     "bond": {
       "bond_id": 1,
@@ -87,19 +93,28 @@
       "issued_at": "2026-04-02",
       "issued_by": "did:ais1:issuer:kadikoy",
       "jurisdiction": "BM",
-      "hcs_topic_id": "pending-hcs",
+      "timestamp_service_ref": "",
       "contract_address": "0x52d0E17b80d19470E0d97Ea6b62bf35d867FDcb3",
+      "contract_version": "v0.1",
       "txn_hash": "0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47",
       "block": 44160942,
       "network": "base-mainnet",
       "expiry": null
-    }
+    },
+    "subordinates": [
+      {
+        "agent_did": "did:ais1:base:humphrey-soa-001",
+        "agent_name": "Humphrey",
+        "bond_id": "ais1:base:00002",
+        "agent_class": "soa"
+      }
+    ]
   },
 
   "ais1_standard": {
-    "version": "0.1",
+    "version": "0.2",
     "specification": "https://ais-1.org",
-    "repository": "https://github.com/kadikoy/ais-1",
+    "repository": "https://github.com/kadikoy1/ais-1",
     "license": "CC0"
   },
 
