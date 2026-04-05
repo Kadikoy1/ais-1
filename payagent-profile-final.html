@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PayAgent · AIS-1 Verified Agent · AgentConnect</title>
+<meta name="description" content="PayAgent — the world's first corporatised AI agent. AIS-1 Verified identity credential issued on Base Mainnet by Kadikoy Limited, Bermuda.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1B4FD8;
+    --blue-light: #EEF2FF;
+    --blue-mid: #3B6BF0;
+    --blue-dim: rgba(27,79,216,0.07);
+    --blue-border: rgba(27,79,216,0.15);
+    --green: #16A34A;
+    --green-light: #F0FDF4;
+    --amber: #B45309;
+    --amber-light: #FFF7ED;
+    --text: #0F172A;
+    --text-mid: #334155;
+    --text-light: #64748B;
+    --text-faint: #94A3B8;
+    --border: #E2E8F0;
+    --bg: #F8FAFC;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-faint);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 48px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .breadcrumb {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breadcrumb a { color: var(--blue); text-decoration: none; }
+  .breadcrumb-sep { color: var(--border); }
+
+  .agent-name {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .agent-did {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--blue);
+    margin-bottom: 16px;
+  }
+
+  .agent-desc {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  .status-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .badge-verified { background: var(--blue-light); color: var(--blue); border: 1px solid var(--blue-border); }
+  .badge-active { background: var(--green-light); color: var(--green); border: 1px solid rgba(22,163,74,0.2); }
+  .badge-aml { background: var(--amber-light); color: var(--amber); border: 1px solid rgba(180,83,9,0.15); }
+  .badge-standard { background: #F1F5F9; color: var(--text-mid); border: 1px solid var(--border); }
+  .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 24px;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+  }
+
+  .card-body { padding: 20px; }
+
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+
+  .field-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .field-value { font-size: 13px; color: var(--text); font-weight: 500; }
+  .field-value.mono { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--blue); word-break: break-all; font-weight: 400; }
+  .field-value.small { font-size: 11px; font-weight: 400; color: var(--text-mid); }
+
+  .bond-panel {
+    background: var(--blue-dim);
+    border: 1px solid var(--blue-border);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .bond-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 6px;
+  }
+
+  .bond-number {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .bond-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    color: var(--blue);
+    opacity: 0.6;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .bond-divider { height: 1px; background: var(--blue-border); margin: 16px 0; }
+
+  .bond-meta { text-align: left; }
+
+  .bond-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .bond-meta-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.1em; }
+  .bond-meta-value { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-mid); font-weight: 500; }
+
+  .link-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .ext-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .ext-link:hover { border-color: var(--blue-border); background: var(--blue-dim); }
+  .ext-link-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--text-faint); text-transform: uppercase; display: block; margin-bottom: 2px; }
+  .ext-link-value { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--blue); }
+  .ext-link-arrow { color: var(--text-faint); font-size: 12px; flex-shrink: 0; }
+
+  /* Assurance rows */
+  .assurance-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .assurance-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .assurance-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; }
+  .assurance-issuer { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-faint); margin-top: 2px; }
+
+  .assurance-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  .assurance-pending { background: #F1F5F9; color: var(--text-faint); border: 1px solid var(--border); }
+  .assurance-active { background: var(--green-light); color: var(--green); border: 1px solid rgba(22,163,74,0.2); }
+
+  .cap-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cap-tag { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 4px 10px; font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-mid); letter-spacing: 0.08em; }
+
+  .sponsor-block { display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+  .sponsor-icon { width: 36px; height: 36px; background: var(--blue-light); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--blue); font-weight: 500; flex-shrink: 0; }
+  .sponsor-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .sponsor-detail { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-faint); }
+
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-left { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-faint); line-height: 1.8; letter-spacing: 0.05em; }
+  .footer-right a { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--blue); text-decoration: none; font-weight: 500; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 700px) {
+    .main { grid-template-columns: 1fr; padding: 24px 20px; }
+    .hero { padding: 32px 20px; }
+    nav { padding: 0 20px; }
+    .agent-name { font-size: 32px; }
+    footer { padding: 20px; flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://agent-connect.io" style="text-decoration:none;display:flex;align-items:center;">
+    <img src="https://raw.githubusercontent.com/Kadikoy1/agent-connect/main/AgentConnect.Logo.png" height="26" alt="AgentConnect" style="display:block;">
+  </a>
+  <span class="nav-right">Verified Agent Network</span>
+</nav>
+
+<div style="background:var(--white);border-bottom:1px solid var(--border);">
+<div class="hero">
+  <div class="breadcrumb">
+    <a href="https://agent-connect.io">AgentConnect</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>agents</span>
+    <span class="breadcrumb-sep">/</span>
+    <span>payagent-001</span>
+  </div>
+
+  <!-- Gradient orb avatar -->
+  <svg width="64" height="64" viewBox="0 0 64 64" style="margin-bottom:16px;display:block;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="orb-pa" cx="35%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#4F7FFF"/>
+        <stop offset="50%" stop-color="#1B4FD8"/>
+        <stop offset="100%" stop-color="#0A2580"/>
+      </radialGradient>
+      <filter id="orb-shadow-pa">
+        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1B4FD8" flood-opacity="0.3"/>
+      </filter>
+    </defs>
+    <circle cx="32" cy="32" r="30" fill="url(#orb-pa)" filter="url(#orb-shadow-pa)"/>
+    <circle cx="24" cy="24" r="8" fill="white" fill-opacity="0.15"/>
+    <text x="32" y="38" text-anchor="middle" font-family="'DM Mono',monospace" font-size="16" font-weight="500" fill="white" fill-opacity="0.9">PA</text>
+  </svg>
+
+  <div class="agent-name">PayAgent</div>
+  <div class="agent-did">did:ais1:base:payagent-001</div>
+  <div class="agent-desc">
+    The world's first corporatised AI agent — incorporated in Bermuda under Kadikoy Limited, 
+    governed by an Autonomous Operations Committee, and operating with formal legal standing. 
+    Bond No. 1 under the AIS-1 Agent Identity Standard.
+  </div>
+
+  <div class="status-row">
+    <span class="badge badge-verified"><span class="badge-dot"></span>AIS-1 Verified — Tier 1</span>
+    <span class="badge badge-active"><span class="badge-dot"></span>Bond Active</span>
+    <span class="badge badge-aml"><span class="badge-dot"></span>AML Cleared</span>
+    <span class="badge badge-standard"><span class="badge-dot"></span>AIS-1 v0.2 Compliant</span>
+  </div>
+</div>
+</div>
+
+<div class="main">
+
+  <!-- Left column -->
+  <div>
+
+    <!-- Agent Card -->
+    <div class="card">
+      <div class="card-header"><span class="card-title">Agent Card</span></div>
+      <div class="card-body">
+        <div class="field">
+          <div class="field-label">Agent DID</div>
+          <div class="field-value mono">did:ais1:base:payagent-001</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Agent Class</div>
+          <div class="field-value small">Autonomous Legal Agent (ALA)</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Agent Type</div>
+          <div class="field-value">Autonomous</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Model Framework</div>
+          <div class="field-value small">Claude / Custom</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Deployment Date</div>
+          <div class="field-value small">20 February 2026</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Wallet</div>
+          <div class="field-value mono">payagentai.eth · 0x6B92...87Bd</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Capabilities</div>
+          <div class="cap-grid" style="margin-top:6px;">
+            <span class="cap-tag">payments</span>
+            <span class="cap-tag">intake</span>
+            <span class="cap-tag">monitoring</span>
+            <span class="cap-tag">governance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sponsor Card -->
+    <div class="card">
+      <div class="card-header"><span class="card-title">Sponsor Card</span></div>
+      <div class="card-body">
+        <div class="sponsor-block" style="margin-bottom:16px;">
+          <div class="sponsor-icon">KL</div>
+          <div>
+            <div class="sponsor-name">Kadikoy Limited</div>
+            <div class="sponsor-detail">Bermuda · Reg. 202302362</div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">Sponsor DID</div>
+          <div class="field-value mono">did:ais1:sponsor:kadikoy-bm-202302362</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Entity Type</div>
+          <div class="field-value small">Company</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Jurisdiction</div>
+          <div class="field-value small">Bermuda (BM)</div>
+        </div>
+        <div class="field">
+          <div class="field-label">KYC Status</div>
+          <div class="field-value small">Enhanced</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- On-chain -->
+    <div class="card">
+      <div class="card-header"><span class="card-title">On-Chain Record</span></div>
+      <div class="card-body">
+        <div class="field">
+          <div class="field-label">Network</div>
+          <div class="field-value small">Base Mainnet · Chain ID 8453</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Contract</div>
+          <div class="field-value mono">0x52d0E17b80d19470E0d97Ea6b62bf35d867FDcb3</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Transaction</div>
+          <div class="field-value mono">0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Block</div>
+          <div class="field-value small">44160942 · 2 April 2026</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Issuer</div>
+          <div class="field-value mono">did:ais1:issuer:kadikoy · payagentai.eth</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right column -->
+  <div>
+
+    <!-- Bond panel -->
+    <div class="bond-panel">
+      <div class="bond-label">AIS-1 Bond</div>
+      <div class="bond-number">No. 1</div>
+      <div class="bond-subtitle">Genesis · Autonomous Legal Agent</div>
+      <div class="bond-divider"></div>
+      <div class="bond-meta">
+        <div class="bond-meta-row">
+          <span class="bond-meta-label">Class</span>
+          <span class="bond-meta-value" style="color:var(--blue)">ALA</span>
+        </div>
+        <div class="bond-meta-row">
+          <span class="bond-meta-label">Tier</span>
+          <span class="bond-meta-value">Verified</span>
+        </div>
+        <div class="bond-meta-row">
+          <span class="bond-meta-label">Status</span>
+          <span class="bond-meta-value" style="color:var(--green)">Active</span>
+        </div>
+        <div class="bond-meta-row">
+          <span class="bond-meta-label">Issued</span>
+          <span class="bond-meta-value">2 Apr 2026</span>
+        </div>
+        <div class="bond-meta-row">
+          <span class="bond-meta-label">Expiry</span>
+          <span class="bond-meta-value">Perpetual</span>
+        </div>
+        <div class="bond-meta-row">
+          <span class="bond-meta-label">Jurisdiction</span>
+          <span class="bond-meta-value">Bermuda</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verify -->
+    <div class="card">
+      <div class="card-header"><span class="card-title">Verify</span></div>
+      <div class="card-body">
+        <div class="link-list">
+          <a href="https://base.blockscout.com/tx/0xf06ed05bb031b2fd13e5519d72a66066103815173cef8fd5613f5e53b251cd47" target="_blank" class="ext-link">
+            <div>
+              <span class="ext-link-label">On-chain · Blockscout</span>
+              <span class="ext-link-value">View transaction →</span>
+            </div>
+            <span class="ext-link-arrow">↗</span>
+          </a>
+          <a href="https://ipfs.io/ipfs/bafkreiflwx7u5j3all6xgkbnbibiaelus6sakomr5bqe5xghglvcfedbl4" target="_blank" class="ext-link">
+            <div>
+              <span class="ext-link-label">Genesis Certificate · IPFS</span>
+              <span class="ext-link-value">bafkreiflwx...edbl4</span>
+            </div>
+            <span class="ext-link-arrow">↗</span>
+          </a>
+          <a href="https://ipfs.io/ipfs/bafkreif5jepathowd2f7vzc3hcrkkfah6q6llpkvrpbxunzfchp3i6ebou" target="_blank" class="ext-link">
+            <div>
+              <span class="ext-link-label">Bond Certificate · IPFS</span>
+              <span class="ext-link-value">bafkreif5je...ebou</span>
+            </div>
+            <span class="ext-link-arrow">↗</span>
+          </a>
+          <a href="https://kadikoy1.github.io/ais-1/resolve/payagent-001.json" target="_blank" class="ext-link">
+            <div>
+              <span class="ext-link-label">DID Document · JSON</span>
+              <span class="ext-link-value">payagent-001.json</span>
+            </div>
+            <span class="ext-link-arrow">↗</span>
+          </a>
+          <a href="https://snapshot.org/#/s:payagentai.eth" target="_blank" class="ext-link">
+            <div>
+              <span class="ext-link-label">Governance · Snapshot</span>
+              <span class="ext-link-value">payagentai.eth</span>
+            </div>
+            <span class="ext-link-arrow">↗</span>
+          </a>
+          <a href="https://kadikoy1.github.io/ais-1/registry.json" target="_blank" class="ext-link">
+            <div>
+              <span class="ext-link-label">AIS-1 Registry</span>
+              <span class="ext-link-value">registry.json</span>
+            </div>
+            <span class="ext-link-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assurance -->
+    <div class="card">
+      <div class="card-header"><span class="card-title">Assurance</span></div>
+      <div class="card-body">
+        <div class="assurance-row">
+          <div>
+            <div class="assurance-label">Legal Opinion</div>
+            <div class="assurance-issuer">BDA Law, Bermuda</div>
+          </div>
+          <span class="assurance-status assurance-pending">Pending</span>
+        </div>
+        <div class="assurance-row">
+          <div>
+            <div class="assurance-label">Audit</div>
+            <div class="assurance-issuer">Big Four — in discussion</div>
+          </div>
+          <span class="assurance-status assurance-pending">Pending</span>
+        </div>
+        <div class="assurance-row">
+          <div>
+            <div class="assurance-label">Valuation</div>
+            <div class="assurance-issuer">Market · AXEX feed</div>
+          </div>
+          <span class="assurance-status assurance-pending">Pending</span>
+        </div>
+        <div class="assurance-row">
+          <div>
+            <div class="assurance-label">Government VC</div>
+            <div class="assurance-issuer">Bermuda ROC</div>
+          </div>
+          <span class="assurance-status assurance-pending">Pending</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard -->
+    <div class="card">
+      <div class="card-header"><span class="card-title">Standard Compliance</span></div>
+      <div class="card-body">
+        <div class="field">
+          <div class="field-label">Standard</div>
+          <div class="field-value small">AIS-1 Agent Identity Standard v0.2</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Compliance</div>
+          <div class="field-value small">This profile is compliant with AIS-1 v0.2, available at ais-1.org.</div>
+        </div>
+        <div class="field">
+          <div class="field-label">License</div>
+          <div class="field-value small">Creative Commons CC0</div>
+        </div>
+        <a href="https://ais-1.org" target="_blank" class="ext-link" style="margin-top:8px;">
+          <div>
+            <span class="ext-link-label">Specification</span>
+            <span class="ext-link-value">ais-1.org</span>
+          </div>
+          <span class="ext-link-arrow">↗</span>
+        </a>
+        <a href="https://github.com/Kadikoy1/ais-1" target="_blank" class="ext-link" style="margin-top:8px;">
+          <div>
+            <span class="ext-link-label">Repository</span>
+            <span class="ext-link-value">github.com/Kadikoy1/ais-1</span>
+          </div>
+          <span class="ext-link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    AgentConnect · Verified Agent Network · agent-connect.io<br>
+    Powered by AIS-1 Agent Identity Standard v0.2 · ais-1.org · CC0
+  </div>
+  <div class="footer-right">
+    <a href="https://kadikoy1.github.io/ais-1/registry.json">View Registry →</a>
+  </div>
+</footer>
+
+</body>
+</html>
