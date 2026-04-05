@@ -367,7 +367,8 @@ footer {
     <a href="#verify">Verify</a>
     <a href="#timeline">Timeline</a>
     <a href="#comment">Comment</a>
-    <a href="https://github.com/kadikoy/ais-1" target="_blank" class="nav-cta">GitHub →</a>
+    <a href="#feedback">Feedback</a>
+    <a href="https://github.com/Kadikoy1/ais-1" target="_blank" class="nav-cta">GitHub →</a>
   </div>
 </nav>
 
@@ -375,7 +376,7 @@ footer {
 <section class="hero">
   <div class="hero-badge">
     <div class="hero-badge-dot"></div>
-    Draft for public comment · v0.1 · March 2026
+    Draft for public comment · v0.2 · April 2026
   </div>
   <h1>The open standard for<br><span>AI agent identity</span></h1>
   <p class="hero-sub">
@@ -384,13 +385,13 @@ footer {
     standing for the agent economy.
   </p>
   <div class="hero-actions">
-    <a href="https://github.com/kadikoy/ais-1" target="_blank" class="btn-primary">Read the specification →</a>
+    <a href="https://kadikoy1.github.io/ais-1/docs/AIS-1_Specification_v0_2.pdf" target="_blank" class="btn-primary">Read the specification →</a>
     <a href="#comment" class="btn-secondary">Submit feedback</a>
   </div>
   <div class="hero-meta">
     <span><div class="hero-meta-dot"></div>CC0 — no rights reserved</span>
     <span><div class="hero-meta-dot"></div>ERC-721 · ERC-8002 · W3C DID</span>
-    <span><div class="hero-meta-dot"></div>Hedera HCS canonical log</span>
+    <span><div class="hero-meta-dot"></div>Optional secondary timestamping</span>
     <span><div class="hero-meta-dot"></div>Open for comment until 30 June 2026</span>
   </div>
 </section>
@@ -440,7 +441,7 @@ footer {
     </div>
     <div class="bond-bottom">
       <div class="bond-bottom-item">Bond hash: <span>keccak256(agentDid ++ sponsorDid ++ timestamp ++ tier)</span></div>
-      <div class="bond-bottom-item">HCS log: <span>Hedera Consensus Service — immutable</span></div>
+      <div class="bond-bottom-item">Timestamp: <span>Optional secondary timestamping service</span></div>
       <div class="bond-bottom-item">Soulbound: <span>ERC-8002 — non-transferable</span></div>
     </div>
   </div>
@@ -546,23 +547,23 @@ footer {
       <div class="tl-date">MAR 2026</div>
       <div>
         <div class="tl-title">AIS-1 v0.1 published</div>
-        <div class="tl-desc">Specification and companion document published on GitHub under CC0. Open for public comment. First reference implementation deployed on Base Sepolia testnet.</div>
+        <div class="tl-desc">Specification and companion document published on GitHub under CC0. Open for public comment.</div>
         <div class="tl-status st-live">LIVE</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">APR 2026</div>
       <div>
-        <div class="tl-title">First bond issuances</div>
-        <div class="tl-desc">The first two AIS-1 bonds issued: Bond 1 (company-agent) and Bond 2 (human-agent). First entries in the AIS-1 registry. Bond IDs published on Agent-Pulse.</div>
-        <div class="tl-status st-now">IN PROGRESS</div>
+        <div class="tl-title">AIS-1 v0.2 published · First bonds issued</div>
+        <div class="tl-desc">v0.2 introduces Subordinate Operating Agents (SOA), DID resolution, technology-neutral timestamp services, and the Assurance Framework. Bond No. 1 (PayAgent, ALA) and Bond No. 2 (Humphrey, first SOA) issued on Base Mainnet. Registry live at ais-1.org/registry.json.</div>
+        <div class="tl-status st-live">LIVE</div>
       </div>
     </div>
     <div class="tl-item">
       <div class="tl-date">MAY 2026</div>
       <div>
         <div class="tl-title">Consensus Miami — live demo</div>
-        <div class="tl-desc">Live AIS-1 bond issuance at EasyA × CoinDesk Consensus 2026, Miami. Hedera HCS smart contract demonstration. Developer workshop.</div>
+        <div class="tl-desc">Live AIS-1 bond issuance at EasyA × CoinDesk Consensus 2026, Miami.</div>
         <div class="tl-status st-soon">MAY 5–7</div>
       </div>
     </div>
@@ -578,7 +579,7 @@ footer {
       <div class="tl-date">Q4 2026</div>
       <div>
         <div class="tl-title">Sovereign tier + multi-chain</div>
-        <div class="tl-desc">Sovereign tier operational in qualifying jurisdictions. AIS-1 deployed on Ethereum, Hedera, Solana and Arbitrum. Authorised issuer network established.</div>
+        <div class="tl-desc">Sovereign tier operational in qualifying jurisdictions. AIS-1 deployed on Ethereum, Solana and Arbitrum. Authorised issuer network established.</div>
         <div class="tl-status st-coming">Q4 2026</div>
       </div>
     </div>
@@ -600,10 +601,15 @@ footer {
   <div class="section-label">Documents</div>
   <h2>Specification and supporting materials.</h2>
   <div class="docs-grid">
-    <a href="https://github.com/kadikoy/ais-1" target="_blank" class="doc-card">
+    <a href="https://kadikoy1.github.io/ais-1/docs/AIS-1_Specification_v0_2.pdf" target="_blank" class="doc-card">
       <div class="doc-tag">Specification</div>
-      <div class="doc-title">AIS-1 Specification v0.1</div>
-      <div class="doc-desc">The full technical specification. Definitions, dual card structure, tiers, smart contract interface, DID method, security considerations, implementation roadmap.</div>
+      <div class="doc-title">AIS-1 Specification v0.2</div>
+      <div class="doc-desc">The full technical specification. Definitions, dual card structure, SOA framework, tiers, smart contract interface, DID method and resolution, security considerations, assurance framework, implementation roadmap.</div>
+    </a>
+    <a href="https://kadikoy1.github.io/ais-1/docs/AIS-1_Redline_v01_to_v02.pdf" target="_blank" class="doc-card">
+      <div class="doc-tag">Redline</div>
+      <div class="doc-title">AIS-1 v0.1 → v0.2 Changes</div>
+      <div class="doc-desc">Redline document showing all changes from v0.1 to v0.2. New content in blue, deleted content in red strikethrough, unchanged text in black.</div>
       <div class="doc-status st-live">Published · GitHub</div>
     </a>
     <a href="https://github.com/kadikoy/ais-1/tree/main/contracts" target="_blank" class="doc-card">
@@ -632,34 +638,34 @@ footer {
 <!-- COMMENT -->
 <section class="section" id="comment">
   <div class="section-label">Public Comment</div>
-  <h2>AIS-1 v0.1 is a draft for public comment.</h2>
+  <h2>AIS-1 v0.2 is a draft for public comment.</h2>
   <p class="body-text">
     Feedback is invited from AI agent developers, blockchain engineers, legal and regulatory
     professionals, enterprise AI deployers, standards organisations and government bodies.
-    The comment period for v0.1 closes <strong>30 June 2026</strong>. A revised v0.2 will
+    The comment period closes <strong>30 June 2026</strong>. A revised v0.3 will
     incorporate substantive feedback.
   </p>
   <div class="comment-box">
     <h3>We are looking for:</h3>
     <p>
-      Technical review of the smart contract interface and soulbound implementation ·
+      Technical review of the smart contract interface and SOA implementation ·
       Feedback on the tier structure and KYC/AML architecture ·
       Input from regulatory bodies on FATF compliance mapping ·
-      Review from W3C DID Working Group on the did:ais1 method ·
+      Review from W3C DID Working Group on the did:ais1 method and resolution algorithm ·
       Proposals for authorised issuer status ·
       Real-world deployment use cases and edge cases ·
       Support for formal standardisation through IEEE, ISO or IETF
     </p>
     <div class="comment-channels">
-      <a href="https://github.com/kadikoy/ais-1/issues" target="_blank" class="channel">
+      <a href="https://github.com/Kadikoy1/ais-1/issues" target="_blank" class="channel">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         GitHub Issues
       </a>
-      <a href="mailto:info@aiagentservices.net" class="channel">
-        ✉ info@aiagentservices.net
+      <a href="mailto:info@aiagentsservices.net" class="channel">
+        ✉ info@aiagentsservices.net
       </a>
-      <a href="https://agent-pulse.ai" target="_blank" class="channel">
-        ◈ Agent-Pulse
+      <a href="https://agentpulse.ai" target="_blank" class="channel">
+        ◈ AgentPulse
       </a>
     </div>
   </div>
@@ -667,20 +673,113 @@ footer {
 
 <hr class="divider">
 
+<!-- FEEDBACK FORM -->
+<section class="section" id="feedback">
+  <div class="section-label">Feedback</div>
+  <h2>Share your feedback on AIS-1.</h2>
+  <p class="body-text">
+    We are actively seeking input from AI developers, blockchain engineers, legal and regulatory
+    professionals, and enterprise deployers. All submissions are reviewed by the AIS-1 team and
+    will inform the v0.3 revision. The comment period closes <strong>30 June 2026</strong>.
+  </p>
+
+  <div style="max-width:680px;background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:32px;margin-top:24px;">
+    <form id="feedback-form" onsubmit="submitFeedback(event)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+        <div>
+          <label style="display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;">NAME</label>
+          <input type="text" id="fb-name" placeholder="Your name" required
+            style="width:100%;padding:10px 12px;border:1px solid #E2E8F0;border-radius:4px;font-family:var(--sans);font-size:14px;color:#0F172A;outline:none;transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#1B4FD8'" onblur="this.style.borderColor='#E2E8F0'">
+        </div>
+        <div>
+          <label style="display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;">ORGANISATION</label>
+          <input type="text" id="fb-org" placeholder="Company, institution or individual"
+            style="width:100%;padding:10px 12px;border:1px solid #E2E8F0;border-radius:4px;font-family:var(--sans);font-size:14px;color:#0F172A;outline:none;transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#1B4FD8'" onblur="this.style.borderColor='#E2E8F0'">
+        </div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;">EMAIL</label>
+        <input type="email" id="fb-email" placeholder="your@email.com" required
+          style="width:100%;padding:10px 12px;border:1px solid #E2E8F0;border-radius:4px;font-family:var(--sans);font-size:14px;color:#0F172A;outline:none;transition:border-color 0.15s;"
+          onfocus="this.style.borderColor='#1B4FD8'" onblur="this.style.borderColor='#E2E8F0'">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;">I AM A</label>
+        <select id="fb-type"
+          style="width:100%;padding:10px 12px;border:1px solid #E2E8F0;border-radius:4px;font-family:var(--sans);font-size:14px;color:#0F172A;outline:none;background:#fff;">
+          <option value="">Select your background</option>
+          <option value="developer">AI / Blockchain Developer</option>
+          <option value="lawyer">Legal Professional</option>
+          <option value="regulator">Regulator / Government</option>
+          <option value="enterprise">Enterprise Deployer</option>
+          <option value="investor">Investor</option>
+          <option value="standards">Standards Organisation</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;">FEEDBACK</label>
+        <textarea id="fb-message" rows="5" placeholder="Technical review, use case proposals, regulatory considerations, questions — all feedback welcome." required
+          style="width:100%;padding:10px 12px;border:1px solid #E2E8F0;border-radius:4px;font-family:var(--sans);font-size:14px;color:#0F172A;outline:none;resize:vertical;transition:border-color 0.15s;"
+          onfocus="this.style.borderColor='#1B4FD8'" onblur="this.style.borderColor='#E2E8F0'"></textarea>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+          <input type="checkbox" id="fb-wg" style="width:14px;height:14px;accent-color:#1B4FD8;">
+          <span style="font-size:13px;color:#334155;">I would like to join the AIS-1 technical working group</span>
+        </label>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button type="submit"
+          style="background:#1B4FD8;color:#fff;border:none;padding:10px 24px;border-radius:4px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.05em;cursor:pointer;transition:background 0.15s;"
+          onmouseover="this.style.background='#1640B0'" onmouseout="this.style.background='#1B4FD8'">
+          Submit feedback →
+        </button>
+        <span style="font-size:12px;color:#94A3B8;font-family:var(--mono);">Submissions sent to info@aiagentsservices.net</span>
+      </div>
+      <div id="fb-success" style="display:none;margin-top:16px;padding:12px 16px;background:#F0FDF4;border:1px solid rgba(22,163,74,0.2);border-radius:4px;color:#16A34A;font-size:13px;font-family:var(--mono);">
+        ✓ Thank you — your feedback has been received and will be reviewed by the AIS-1 team.
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+function submitFeedback(e) {
+  e.preventDefault();
+  const name = document.getElementById('fb-name').value;
+  const org = document.getElementById('fb-org').value;
+  const email = document.getElementById('fb-email').value;
+  const type = document.getElementById('fb-type').value;
+  const message = document.getElementById('fb-message').value;
+  const wg = document.getElementById('fb-wg').checked;
+  
+  const subject = encodeURIComponent('AIS-1 v0.2 Feedback — ' + name);
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Organisation: ' + org + '\n' +
+    'Email: ' + email + '\n' +
+    'Background: ' + type + '\n' +
+    'Working group: ' + (wg ? 'Yes' : 'No') + '\n\n' +
+    'Feedback:\n' + message
+  );
+  
+  window.location.href = 'mailto:info@aiagentsservices.net?subject=' + subject + '&body=' + body;
+  document.getElementById('fb-success').style.display = 'block';
+}
+</script>
+
+<hr class="divider">
+
 <footer>
   <div class="footer-inner">
     <div class="footer-l">
-      <strong>AIS-1</strong> — Agent Identity Standard · v0.1 · March 2026<br>
+      <strong>AIS-1</strong> — Agent Identity Standard · v0.2 · April 2026<br>
       Published by BDA AI Agent Services · Kadikoy Limited, Bermuda<br>
       <strong>CC0</strong> — No rights reserved. Free to implement without restriction.
     </div>
     <div class="footer-r">
       <a href="https://github.com/kadikoy/ais-1">GitHub →</a><br>
-      <a href="https://agent-pulse.ai">Agent-Pulse →</a><br>
-      <a href="mailto:info@aiagentservices.net">info@aiagentservices.net</a>
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
+      <a href="https://agent-pulse.ai">Age
