@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/mcp/*"
+  to = "https://YOUR-RAILWAY-URL.up.railway.app/:splat"
+  status = 200
+  force = true
