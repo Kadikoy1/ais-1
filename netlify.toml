@@ -1,5 +1,23 @@
+[build]
+  command = "node scripts/prepare-netlify-site.js"
+  publish = "ais-1-website"
+
 [[redirects]]
   from = "/mcp/*"
   to = "https://ais-1-mcp-server-production.up.railway.app/:splat"
   status = 200
   force = true
+
+[[headers]]
+  for = "/registry.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Cache-Control = "public, max-age=300, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/resolve/*.json"
+  [headers.values]
+    Content-Type = "application/did+ld+json; charset=utf-8"
+    Cache-Control = "public, max-age=300, must-revalidate"
+    X-Content-Type-Options = "nosniff"
